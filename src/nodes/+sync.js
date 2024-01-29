@@ -7,12 +7,15 @@ export class sync extends Pure {
 
   constructor() {
     super();
+    this.addInput("workbook", "excel::workbook");
     this.addInput("chain", "");
   }
 
   async onExecute() {
-    await window.Excel.run(async (context) => {
-      await context.sync();
-    });
+    const wb = this.getInputData(1);
+    wb.context.sync();
+    // await window.Excel.run(async (context) => {
+    //   await wb.context.sync();
+    // });
   }
 }
