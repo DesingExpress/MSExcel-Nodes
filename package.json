@@ -8,11 +8,11 @@
     "build"
   ],
   "dependencies": {
-    "@design-express/node-scripts": "1.1.7",
-    "@types/office-js": "^1.0.356",
-    "@types/office-runtime": "^1.0.34",
-    "eslint-plugin-office-addins": "^2.1.8",
-    "office-addin-lint": "^2.2.8"
+    "@design-express/node-scripts": "^1.2.5",
+    "@types/office-js": "^1.0.445",
+    "@types/office-runtime": "^1.0.35",
+    "eslint-plugin-office-addins": "^3.0.3",
+    "office-addin-lint": "^2.3.5"
   },
   "scripts": {
     "start": "node-scripts start",

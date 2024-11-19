@@ -7,20 +7,15 @@ export class getSelectedRange extends Pure {
 
   constructor() {
     super();
+    this.addInput("context", "office::excel::context");
     this.addOutput("range", "office::excel::range,string");
   }
 
   async onExecute() {
-    // console.log(this.outputs[1], this.getOutputNodes(1));
-    await window.Excel.run(async (context) => {
-      /**
-       * Insert your Excel code here
-       */
-      const range = context.workbook.getSelectedRange();
-      range.load("address");
-      await context.sync();
-      this.setOutputData(1, range.address);
-      //   console.log(`The range address was ${range.address}.`);
-    });
+    const context = this.getInputData(1);
+    const range = context.workbook.getSelectedRange();
+    range.load("address");
+    await context.sync();
+    this.setOutputData(1, range.address);
   }
 }
