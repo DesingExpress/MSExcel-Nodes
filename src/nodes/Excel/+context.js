@@ -18,10 +18,12 @@ export class context extends Pure {
     });
     const getResult = { current: undefined };
     const resultPromise = new Promise((r) => (getResult.current = r));
+
     window.Excel.run(async (context) => {
       getResult.current(context);
       await lock;
     });
+
     this.setOutputData(1, await resultPromise);
   }
 }

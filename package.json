@@ -9,10 +9,10 @@
   ],
   "dependencies": {
     "@design-express/node-scripts": "^1.2.7",
-    "@types/office-js": "^1.0.445",
+    "@types/office-js": "^1.0.463",
     "@types/office-runtime": "^1.0.35",
     "eslint-plugin-office-addins": "^3.0.3",
-    "office-addin-lint": "^2.3.5"
+    "office-addin-lint": "^3.0.3"
   },
   "scripts": {
     "start": "node-scripts start",

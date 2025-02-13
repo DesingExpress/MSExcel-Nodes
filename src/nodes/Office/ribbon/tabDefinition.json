@@ -1,0 +1,187 @@
+{
+  "actions": [
+    {
+      "id": "idRibbonAction",
+      "type": "ExecuteFunction",
+      "functionName": "onExecuteRibbonAction"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "idCustomTab",
+      "label": "CustomTab",
+      "visible": true,
+      "groups": [
+        {
+          "id": "idDataGroup",
+          "label": "Actions",
+          "icon": [
+            {
+              "size": 16,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+            },
+            {
+              "size": 32,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+            },
+            {
+              "size": 72,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+            }
+          ],
+          "controls": [
+            {
+              "type": "Button",
+              "id": "idControl1",
+              "actionId": "idRibbonAction",
+              "enabled": true,
+              "label": "Insert Table",
+              "superTip": {
+                "title": "Insert Table",
+                "description": "Use this button to intert table."
+              },
+              "icon": [
+                {
+                  "size": 16,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+                },
+                {
+                  "size": 32,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+                },
+                {
+                  "size": 72,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+                }
+              ]
+            },
+            {
+              "type": "Button",
+              "id": "idControl2",
+              "actionId": "idRibbonAction",
+              "enabled": true,
+              "label": "Delete Table",
+              "superTip": {
+                "title": "Delete Table",
+                "description": "Use this button to delete inserted table."
+              },
+              "icon": [
+                {
+                  "size": 16,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+                },
+                {
+                  "size": 32,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+                },
+                {
+                  "size": 72,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idFitGroup",
+          "label": "Fit",
+          "icon": [
+            {
+              "size": 16,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+            },
+            {
+              "size": 32,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+            },
+            {
+              "size": 72,
+              "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+            }
+          ],
+          "controls": [
+            {
+              "type": "Menu",
+              "id": "idMenuControl",
+              "actionId": "idRibbonAction",
+              "enabled": true,
+              "label": "Style",
+              "superTip": {
+                "title": "Style",
+                "description": "Use this menut to autofit row and column of the sheet."
+              },
+              "icon": [
+                {
+                  "size": 16,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+                },
+                {
+                  "size": 32,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+                },
+                {
+                  "size": 72,
+                  "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+                }
+              ],
+              "items": [
+                {
+                  "type": "MenuItem",
+                  "id": "idItem1",
+                  "actionId": "idRibbonAction",
+                  "enabled": true,
+                  "icon": [
+                    {
+                      "size": 16,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+                    },
+                    {
+                      "size": 32,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+                    },
+                    {
+                      "size": 72,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+                    }
+                  ],
+                  "label": "Autofit Column",
+                  "toolTip": "Autofit Column",
+                  "superTip": {
+                    "title": "Autofit Column",
+                    "description": "Autofit Column"
+                  }
+                },
+                {
+                  "type": "MenuItem",
+                  "id": "idItem2",
+                  "actionId": "idRibbonAction",
+                  "enabled": true,
+                  "icon": [
+                    {
+                      "size": 16,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png16.png"
+                    },
+                    {
+                      "size": 32,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png32.png"
+                    },
+                    {
+                      "size": 72,
+                      "sourceLocation": "https://x.nexivil.com/logo/logo16r.png72.png"
+                    }
+                  ],
+                  "label": "Autofit Row",
+                  "toolTip": "Autofit Row",
+                  "superTip": {
+                    "title": "Autofit Row",
+                    "description": "Autofit Row"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
