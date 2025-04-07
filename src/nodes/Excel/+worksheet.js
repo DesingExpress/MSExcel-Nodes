@@ -10,6 +10,7 @@ export class worksheet extends Pure {
     this.addInput("context", "office::excel::context");
     this.addInput("workbook", "office::excel::workbook");
     this.addInput("sheetname", "string");
+
     this.addOutput("worksheet", "office::excel::worksheet");
   }
 
@@ -25,7 +26,7 @@ export class worksheet extends Pure {
           await context.sync();
           return sheets.find((i) => i.name === sheetname);
         })()
-      : workbook.getActiveWorksheet();
+      : workbook.worksheets.getActiveWorksheet();
     this.setOutputData(1, worksheet);
   }
 }
