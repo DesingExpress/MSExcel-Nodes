@@ -1,7 +1,7 @@
 import { Pure } from "@design-express/fabrica";
 
 export class context extends Pure {
-  static path = "Office/Exel";
+  static path = "Office/Excel";
   static title = "Context";
   static description = "";
 
@@ -25,7 +25,7 @@ export class context extends Pure {
       const domElem = (this.domElem = window.document.createElement("script"));
       domElem.src = "/addin/msoffice/dist/office.js";
       window.document.head.appendChild(domElem);
-      console.log(this.domElem);
+
       domElem.onload = () => {
         const runtimeDomElem = window.document.createElement("script");
         runtimeDomElem.text = `const { promise, resolve, reject } = Promise.withResolvers();
@@ -46,7 +46,11 @@ window.promisifyOffice = promise;`;
       };
       await promise;
     }
-    await window.promisifyOffice;
+    if (await window.promisifyOffice.catch(() => true)) {
+      this.setOutputData(1, undefined);
+      return;
+    }
+
     if (this._waiter) this._waiter();
     const lock = new Promise((r) => {
       this._waiter = r;
@@ -57,6 +61,7 @@ window.promisifyOffice = promise;`;
       getResult.current(context);
       await lock;
     });
+
     this.setOutputData(1, await resultPromise);
   }
 }
