@@ -7,11 +7,11 @@ export class getHost extends Pure {
 
   constructor() {
     super();
-    
+
     this.addOutput("host", "string");
   }
 
   async onExecute() {
-    this.setOutputData(1, window.Office.context.host);
+    this.setOutputData(1, window.Office?.context.host);
   }
 }
