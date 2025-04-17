@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>b2e424e7-800b-495f-b8eb-5dc2398545db</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>NEXIVIL</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="design_express_add_in" />
+  <Description DefaultValue="A template to get started." />
+  <IconUrl DefaultValue="https://localhost:3000/logo/32r.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/logo/512r.png" />
+  <SupportUrl DefaultValue="https://x.nexivil.com" />
+  <AppDomains>
+    <AppDomain>https://x.nexivil.com</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="SharedRuntime" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/addin/msoffice/excel/taskpanepreview.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <Runtimes>
+          <Runtime resid="Taskpane.Url" lifetime="long" />
+        </Runtimes>
+        <AllFormFactors>
+          <Page>
+            <SourceLocation resid="Taskpane.Url" />
+          </Page>
+        </AllFormFactors>
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title" />
+            <Description resid="GetStarted.Description" />
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl" />
+          </GetStarted>
+          <FunctionFile resid="Taskpane.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="CommandsGroup">
+                <Label resid="CommandsGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                  <bt:Image size="32" resid="Icon.32x32" />
+                  <bt:Image size="80" resid="Icon.72x72" />
+                </Icon>
+                <Control xsi:type="Button" id="TaskpaneButton">
+                  <Label resid="TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Label" />
+                    <Description resid="TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                    <bt:Image size="32" resid="Icon.32x32" />
+                    <bt:Image size="80" resid="Icon.72x72" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+            <!-- 추가 탭-->
+            <CustomTab id="Nexivil.TabCustom">
+              <Group id="Nexivil.TabCustom.Group1">
+                <Label resid="TabCustom.Group1.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                  <bt:Image size="32" resid="Icon.32x32" />
+                  <bt:Image size="80" resid="Icon.72x72" />
+                </Icon>
+                <Control xsi:type="Button" id="Contoso.Button2">
+                  <!-- information on the control omitted -->
+                  <Label resid="TabCustom.Group1.Icon.Label" />
+                  <Supertip>
+                    <!--ToolTip
+                    title. resid must point to a ShortString resource -->
+                    <Title resid="TabCustom.Group1.Icon.Label" />
+                    <!--ToolTip
+                    description. resid must point to a LongString resource -->
+                    <Description resid="TabCustom.Group1.Icon.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                    <bt:Image size="32" resid="Icon.32x32" />
+                    <bt:Image size="80" resid="Icon.72x72" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+              </Group>
+              <Label resid="TabCustom.Label" />
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://x.nexivil.com/logo/logo16r.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://x.nexivil.com/logo/logo32r.png" />
+        <bt:Image id="Icon.72x72" DefaultValue="https://x.nexivil.com/logo/logo72r.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl"
+          DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" />
+        <bt:Url id="Taskpane.Url"
+          DefaultValue="https://localhost:3000/addin/msoffice/excel/taskpanepreview.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group" />
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="TabCustom.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="TabCustom.Group1.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="TabCustom.Group1.Icon.Label" DefaultValue="Show Taskpane" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description"
+          DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
+        <bt:String id="TabCustom.Group1.Icon.Tooltip" DefaultValue="Click to Show a Taskpane" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

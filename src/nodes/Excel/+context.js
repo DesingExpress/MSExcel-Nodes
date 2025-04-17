@@ -57,6 +57,7 @@ window.promisifyOffice = promise;`;
     });
     const getResult = { current: undefined };
     const resultPromise = new Promise((r) => (getResult.current = r));
+
     window.Excel.run(async (context) => {
       getResult.current(context);
       await lock;

@@ -13,6 +13,7 @@ export class workbook extends Pure {
 
   async onExecute() {
     const context = this.getInputData(1);
+    console.log("workbook", context.workbook);
     const workbook = context.workbook;
     this.setOutputData(1, workbook);
   }
