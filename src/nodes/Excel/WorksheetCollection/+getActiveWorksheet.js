@@ -7,20 +7,15 @@ export class getActiveWorksheet extends Pure {
 
   constructor() {
     super();
-    this.addInput("worksheets", "excel::worksheetcollection");
-    this.addOutput("worksheet", "excel::worksheet");
+    this.addInput("context", "office::excel::context");
+
+    this.addOutput("worksheet", "office::excel::worksheet");
   }
 
   async onExecute() {
-    const wsc = this.getInputData(1);
-    if (!wsc) return this.setOutputData(1, undefined);
-    const sheet = wsc.getActiveWorksheet();
+    const context = this.getInputData(1);
+    if (!context) return this.setOutputData(1, undefined);
+    const sheet = context.workbook.worksheets.getActiveWorksheet();
     this.setOutputData(1, sheet);
-
-    // sheet.set({
-    //   tabColor: "",
-    //   name: "Sheet1",
-    // });
-    await sheet.context.sync();
   }
 }
