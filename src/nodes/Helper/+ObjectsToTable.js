@@ -17,7 +17,6 @@ export class objectToTable extends Pure {
     if (!data && data.length > 0) return this.setOutputData(1, undefined);
     const columns = Object.keys(data[0]);
     const rows = data.map((r) => columns.map((k) => r[k]));
-    console.log(columns, rows);
     this.setOutputData(1, { columns, rows });
   }
 }
