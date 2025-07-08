@@ -1,6 +1,6 @@
 import { Pure } from "@design-express/fabrica";
 
-export class getSelectedRange extends Pure {
+export class fillColor extends Pure {
   static path = "Office/Excel/Format";
   static title = "fill";
   static description = "";

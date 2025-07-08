@@ -2,31 +2,32 @@ import { Pure } from "@design-express/fabrica";
 
 export class worksheet extends Pure {
   static path = "Office/Excel";
-  static title = "worksheet";
+  static title = "Worksheet";
   static description = "";
 
   constructor() {
     super();
     this.addInput("context", "office::excel::context");
-    this.addInput("workbook", "office::excel::workbook");
-    this.addInput("sheetname", "string");
+    this.addInput("name|id", "string");
 
     this.addOutput("worksheet", "office::excel::worksheet");
   }
 
   async onExecute() {
     const context = this.getInputData(1);
-    const workbook = this.getInputData(2);
-    const sheetname = this.getInputData(3);
+    if (!context) return;
 
-    const worksheet = (await sheetname)
-      ? (async function () {
-          const sheets = workbook.worksheets;
-          sheets.load("items/name");
-          await context.sync();
-          return sheets.find((i) => i.name === sheetname);
+    const key = this.getInputData(2) ?? false;
+    const _worksheet = key
+      ? await (async function () {
+          const wsCollection = context.workbook.worksheets;
+          const ws = wsCollection.getItemOrNullObject(key);
+          return ws;
         })()
-      : workbook.worksheets.getActiveWorksheet();
-    this.setOutputData(1, worksheet);
+      : context.workbook.worksheets.getActiveWorksheet();
+
+    _worksheet.load("isNull");
+    await _worksheet.context.sync();
+    this.setOutputData(1, _worksheet);
   }
 }

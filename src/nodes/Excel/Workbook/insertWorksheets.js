@@ -1,13 +1,13 @@
 import { Pure } from "@design-express/fabrica";
 
 export class insertWorksheets extends Pure {
-  static path = "Office/Excel";
+  static path = "Office/Excel/Workbook";
   static title = "insertWorksheets";
   static description = "";
 
   constructor() {
     super();
-    this.addOutput("workbook", "excel::workbook");
+    this.addOutput("workbook", "office::excel::workbook");
   }
 
   async onExecute() {

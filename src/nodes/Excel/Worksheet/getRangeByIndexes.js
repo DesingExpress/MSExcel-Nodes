@@ -7,7 +7,7 @@ export class getRangeByIndexes extends Pure {
 
   constructor() {
     super();
-    this.addInput("worksheet", "excel::worksheet");
+    this.addInput("worksheet", "office::excel::worksheet");
     this.addInput("startRow", "number");
     this.addInput("startColumn", "number");
     this.addInput("rowCount", "number");

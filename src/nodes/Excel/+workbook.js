@@ -8,13 +8,14 @@ export class workbook extends Pure {
   constructor() {
     super();
     this.addInput("context", "office::excel::context");
+
     this.addOutput("workbook", "office::excel::workbook");
   }
 
   async onExecute() {
     const context = this.getInputData(1);
-    console.log("workbook", context.workbook);
-    const workbook = context.workbook;
-    this.setOutputData(1, workbook);
+    if (!context) return this.getInputData(1, undefined);
+    const _workbook = context.workbook;
+    this.setOutputData(1, _workbook);
   }
 }
