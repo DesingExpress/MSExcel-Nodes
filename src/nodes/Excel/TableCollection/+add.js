@@ -30,13 +30,11 @@ export class addTable extends Pure {
     const _range = this.getInputData(2);
     if (!_tables || !_range) {
       this.setOutputData(1, undefined);
-      this.setOutputData(2, undefined);
-      console.log(_tables, _range);
       return;
     }
     const hasHeader = this.getInputData(3) ?? this.properties.hasHeaders;
     const tb = _tables.add(_range, hasHeader);
     tb.worksheet.context.sync();
-    // this.setOutputData(1, tb);
+    this.setOutputData(1, tb);
   }
 }
