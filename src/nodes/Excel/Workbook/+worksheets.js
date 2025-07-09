@@ -27,7 +27,10 @@ export class worksheetCollection extends Pure {
 
   async onExecute() {
     const _workbook = this.getInputData(1);
-    if (!_workbook) return;
+    if (!_workbook) {
+      console.error("Workbook is undefined.");
+      return this.setOutputData(1, undefined);
+    }
 
     const _worksheets = _workbook.worksheets;
 

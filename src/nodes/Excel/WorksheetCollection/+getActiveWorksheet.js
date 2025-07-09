@@ -16,7 +16,10 @@ export class getActiveWorksheet extends Pure {
 
   async onExecute() {
     const _worksheets = this.getInputData(1);
-    if (!_worksheets) return this.setOutputData(1, undefined);
+    if (!_worksheets) {
+      console.log("Worksheets is undefined.");
+      return this.setOutputData(1, undefined);
+    }
 
     const sheet = _worksheets.getActiveWorksheet();
     sheet.load(["id", "isNull"]);

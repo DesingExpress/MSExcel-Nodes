@@ -15,6 +15,7 @@ export class tableCollection extends Pure {
   onExecute() {
     const _worksheet = this.getInputData(1);
     if (!_worksheet || _worksheet.isNull) {
+      console.error("Worksheet is undefined.");
       return this.setOutputData(1, undefined);
     }
     this.setOutputData(1, _worksheet.tables);

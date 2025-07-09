@@ -14,7 +14,10 @@ export class workbook extends Pure {
 
   async onExecute() {
     const context = this.getInputData(1);
-    if (!context) return this.getInputData(1, undefined);
+    if (!context) {
+      console.error("Context is undefined.");
+      return this.getInputData(1, undefined);
+    }
     const _workbook = context.workbook;
     this.setOutputData(1, _workbook);
   }
